@@ -9,7 +9,7 @@ $output = json_decode(file_get_contents('php://input'),true);
 $id = $output['message']['chat']['id'];
 $token = '272967076:AAFnC6WbVpExcWWoSXf1TUTE1WlnRiyKLrQ';
 
-sendMessage($id, $token );
+sendMessage($id, $token ); 
 
 function sendMessage($token, $id){
 
