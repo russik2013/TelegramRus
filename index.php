@@ -38,9 +38,11 @@ file_put_contents("logs.txt",$id);
 function KeyboardMenu(){
     $buttons = [['hi'],['how are you?']];
    $keyboard =json_encode($keyboard =['keyboard' => $buttons,
-                                      'resize_keyboard' => false,
+                                      'resize_keyboard' => true,
                                       'one_time_keyboard' => false,
-                                      'selective' => false]);
-    $replayKey = '&&reply_markup = '.$keyboard.'';
-    return $replayKey;
+                                      'selective' => true]);
+    $reply_markup = '&reply_markup=' . $keyboard . '';
+
+    return $reply_markup;
+
 }
