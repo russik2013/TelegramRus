@@ -55,8 +55,8 @@ function inlineKeyboard(){
 
     $reply_markup = '';
 
-    $x1 = array('text' => 'Inline_one', 'collback_data' => 'Inline_one');
-    $x2 = array('text' => 'Inline_five', 'collback_data' => 'Inline_five');
+    $x1 = array('text' => 'Inline_one', 'callback_data' => 'Inline_one');
+    $x2 = array('text' => 'Inline_five', 'callback_data' => 'Inline_five');
     $opz = [[$x1], [$x2]];
 
     $keyboard = array("inline_keyboard" => $opz);
