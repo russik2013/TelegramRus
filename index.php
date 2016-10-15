@@ -23,6 +23,10 @@ switch ($message){
         $message = 'i am fine';
         sendMessage($token, $id, $message.KeyboardMenu());
         break;
+    case 'inline keyboard':
+        $message = 'inline on';
+        sendMessage($token, $id, $message.InlineKeyboard());
+        break;
     default:
         $message = 'What are you say?';
         sendMessage($token, $id, $message);
@@ -36,7 +40,7 @@ function sendMessage($token, $id, $message)
 file_put_contents("logs.txt",$id);
 
 function KeyboardMenu(){
-    $buttons = [['hi'],['how are you?']];
+    $buttons = [['hi'],['how are you?'],['inline keyboard']];
    $keyboard =json_encode($keyboard =['keyboard' => $buttons,
                                       'resize_keyboard' => true,
                                       'one_time_keyboard' => false,
