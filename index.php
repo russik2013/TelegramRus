@@ -17,7 +17,7 @@ switch ($message){
         break;
     case 'hi':
         $message = 'Hello';
-        sendMessage($token, $id, $message);
+        sendMessage($token, $id, $message.KeyboardMenu());
         break;
     case 'how are you?':
         $message = 'i am fine';
@@ -25,7 +25,7 @@ switch ($message){
         break;
     case 'inline keyboard':
         $message = 'inline on';
-        sendMessage($token, $id, $message.InlineKeyboard());
+        sendMessage($token, $id, InlineKeyboard());
         break;
     default:
         $message = 'What are you say?';
