@@ -46,3 +46,19 @@ function KeyboardMenu(){
     return $reply_markup;
 
 }
+
+function InlineKeyboard(){
+
+    $x1 = array('text' => 'Inline_One','callback_data' => 'Inline_One');
+    $x2 = array('text' => 'Inline_Two','callback_data' => 'Inline_Two');
+
+    $opz = [$x1, $x2];
+
+    $keyboard = array("inline_keyboard" => $opz);
+
+    $keyboard = json_encode($keyboard, true);
+
+    $reply_markup = '&reply_markup='.$keyboard;
+
+    return $reply_markup;
+}
