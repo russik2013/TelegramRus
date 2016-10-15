@@ -23,9 +23,9 @@ switch ($message){
         $message = 'i am fine';
         sendMessage($token, $id, $message.KeyboardMenu());
         break;
-    case 'inline keyboard':
-        $message = 'inline on';
-        sendMessage($token, $id, $message.InlineKeyboard());
+    case 'inline_keyboard':
+        $message = 'DONE';
+        sendMessage($token, $id, $message.inlineKeyboard());
         break;
     default:
         $message = 'What are you say?';
@@ -40,7 +40,7 @@ function sendMessage($token, $id, $message)
 file_put_contents("logs.txt",$id);
 
 function KeyboardMenu(){
-    $buttons = [['hi'],['how are you?'],['inline keyboard']];
+    $buttons = [['hi'],['how are you?'],['inline_keyboard']];
    $keyboard =json_encode($keyboard =['keyboard' => $buttons,
                                       'resize_keyboard' => true,
                                       'one_time_keyboard' => false,
@@ -51,19 +51,18 @@ function KeyboardMenu(){
 
 }
 
-function InlineKeyboard(){
-    $reply_markup = '';
-    $x1 = array('text' => 'Inline_One','callback_data' => 'Inline_One');
-    $x2 = array('text' => 'Inline_Two','callback_data' => 'Inline_Two');
+function inlineKeyboard(){
 
+    $reply_markup = '';
+
+    $x1 = array('text' => 'Inline_one', 'collback_data' => 'Inline_one');
+    $x2 = array('text' => 'Inline_five', 'collback_data' => 'Inline_five');
     $opz = [[$x1], [$x2]];
 
     $keyboard = array("inline_keyboard" => $opz);
 
     $keyboard = json_encode($keyboard, true);
-
-    $reply_markup = '&reply_markup='.$keyboard;
-
+    $reply_markup = '&reply_markup'.$keyboard;
     return $reply_markup;
 }
 
