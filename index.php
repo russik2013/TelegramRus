@@ -25,7 +25,7 @@ switch ($message){
         break;
     case 'inline keyboard':
         $message = 'inline on';
-        sendMessage($token, $id, InlineKeyboard());
+        sendMessage($token, $id, $message.InlineKeyboard());
         break;
     default:
         $message = 'What are you say?';
@@ -52,11 +52,11 @@ function KeyboardMenu(){
 }
 
 function InlineKeyboard(){
-
+    $reply_markup = '';
     $x1 = array('text' => 'Inline_One','callback_data' => 'Inline_One');
     $x2 = array('text' => 'Inline_Two','callback_data' => 'Inline_Two');
 
-    $opz = [$x1, $x2];
+    $opz = [[$x1], [$x2]];
 
     $keyboard = array("inline_keyboard" => $opz);
 
@@ -66,3 +66,7 @@ function InlineKeyboard(){
 
     return $reply_markup;
 }
+
+
+
+
