@@ -62,7 +62,7 @@ function inlineKeyboard(){
     $keyboard = array("inline_keyboard" => $opz);
 
     $keyboard = json_encode($keyboard, true);
-    $reply_markup = '&reply_markup'.$keyboard;
+    $reply_markup = '&reply_markup='.$keyboard;
     return $reply_markup;
 }
 
