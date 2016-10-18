@@ -10,6 +10,10 @@ $id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $token = '272967076:AAFnC6WbVpExcWWoSXf1TUTE1WlnRiyKLrQ';
 
+if (isset($output['callback_query']['data'])) {
+    checkInline($output, $token);
+}
+
 switch ($message){
     case '/start':
         $message = 'Бот поддерживает следующие команды : 1. hi; 2. how are you?. 3. ..... ';
@@ -66,12 +70,12 @@ function inlineKeyboard(){
     return $reply_markup;
 }
 
-if(isset($output['callback_query']['data'])){
-    $id = $output['callback_query']['message']['chat']['id'];
-    $message = $output['callback_query']['data'];
-    sendMessage($token, $id, $message);
+function checkInline($output, $token)
+{
+        $id = $output['callback_query']['message']['chat']['id'];
+        $message = $output['callback_query']['data'];
+        sendMessage($token, $id, $message);
 }
-
 
 
 
