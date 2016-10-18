@@ -66,7 +66,11 @@ function inlineKeyboard(){
     return $reply_markup;
 }
 
-
+if(isset($output['callback_query']['data'])){
+    $id = $output['callback_query']['message']['chat']['id'];
+    $message = $output['callback_query']['data'];
+    sendMessage($token, $id, $message);
+}
 
 
 
