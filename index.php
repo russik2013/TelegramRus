@@ -26,7 +26,7 @@ if(isset($output['inline_query'])){
     );
     $home = array( "type" => "article",
         "id" => "1",
-        "title" => "You are cool",
+        "title" => "You are cool", 
         "input_message_content" => array("message_text"=>"I'm cool" ,
             "parse_mode" => "HTML"),
 
