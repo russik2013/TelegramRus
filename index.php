@@ -10,6 +10,32 @@ $id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $token = '272967076:AAFnC6WbVpExcWWoSXf1TUTE1WlnRiyKLrQ';
 
+if(isset($output['inline_query'])){
+    $id = $output['inline_query']['from']['id'];
+
+
+    $input_context = array(
+        "message_text" => "russik is cool"
+    );
+//$fuck = file_get_contents("errors.txt");
+
+    $gen = array( "type" => "article",
+        "id" => "2",
+        "title" => "Very cool?",
+        "input_message_content" => array("message_text"=>"very cool")
+    );
+    $home = array( "type" => "article",
+        "id" => "1",
+        "title" => "You are cool",
+        "input_message_content" => array("message_text"=>"I'm cool" ,
+            "parse_mode" => "HTML"),
+
+    );
+    $drug = json_encode([$gen,$home]);
+
+    file_get_contents("https://api.telegram.org/bot".$token."/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1");
+}
+
 if (isset($output['callback_query']['data'])) {
     checkInline($output, $token);
 }
