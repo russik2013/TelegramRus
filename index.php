@@ -5,6 +5,7 @@
  * Date: 19.09.2016
  * Time: 20:50
  */
+print_r($_COOKIE);
 file_put_contents('logs.txt', $_COOKIE);
 $output = json_decode(file_get_contents('php://input'),true);
 $id = $output['message']['chat']['id'];
