@@ -9,6 +9,12 @@ $output = json_decode(file_get_contents('php://input'),true);
 $id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $token = '272967076:AAFnC6WbVpExcWWoSXf1TUTE1WlnRiyKLrQ';
+$fp = json_decode(file_get_contents('user.json'), true);
+
+$message = "russik";
+$fp[$id] = $message;
+$arr3 = json_encode($fp);
+file_put_contents('user.json', $arr3);
 
 if(isset($output['inline_query'])){
     $id = $output['inline_query']['from']['id'];
@@ -26,7 +32,7 @@ if(isset($output['inline_query'])){
     );
     $home = array( "type" => "article",
         "id" => "1",
-        "title" => "You are cool", 
+        "title" => "You are cool",
         "input_message_content" => array("message_text"=>"I'm cool" ,
             "parse_mode" => "HTML"),
 
