@@ -10,7 +10,7 @@ file_put_contents('logs.txt', $_COOKIE);
 $output = json_decode(file_get_contents('php://input'),true);
 $id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-$token = '272967076:AAFnC6WbVpExcWWoSXf1TUTE1WlnRiyKLrQ';
+$token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
 $fp = json_decode(file_get_contents('user.json'), true);
 
 $message = "russik";
